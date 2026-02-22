@@ -1,7 +1,7 @@
 export default function Form() {
   return (
-    <form class="box">
-      <span class="checkbox">
+    <form className="box">
+      <span className="checkbox">
         <input type="checkbox" />
       </span>
       <input

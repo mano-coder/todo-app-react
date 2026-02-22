@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
-    <footer class="box">
+    <footer className="box">
       <span id="item-left">- items left</span>
-      <div class="filter-options">
-        <button type="button" class="selected">
+      <div className="filter-options">
+        <button type="button" className="selected">
           All
         </button>
         <button type="button">Active</button>
