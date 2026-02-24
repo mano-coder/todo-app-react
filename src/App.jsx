@@ -27,7 +27,7 @@ export default function App() {
       {/* <Form /> */}
       <section className="boxes-section">
         <ul id="task-list"></ul>
-      <Footer />
+        <Footer />
       </section>
 
       <p className="note">Drag and drop to reorder list</p>

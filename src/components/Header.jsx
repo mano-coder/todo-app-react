@@ -6,8 +6,18 @@ export default function Header(props) {
     <header>
       <h1>TODO</h1>
       <button type="button" id="theme-btn" onClick={props.handleClick}>
-        <img src={iconMoon} alt="icon-moon" id="icon-moon" />
-        <img src={iconSun} alt="icon-sun" className="hidden" id="icon-sun" />
+        <img
+          src={iconMoon}
+          alt="icon-moon"
+          className={props.theme === "dark" ? "hidden" : ""}
+          id="icon-moon"
+        />
+        <img
+          src={iconSun}
+          alt="icon-sun"
+          className={props.theme === "light" ? "hidden" : ""}
+          id="icon-sun"
+        />
       </button>
     </header>
   );
