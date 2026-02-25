@@ -28,12 +28,13 @@ export default function App() {
   }, [tasks]);
 
   const newTask = (value, isCompleted) => {
+    if (value.length === 0) return;
     setTasks((prevTasks) => {
       return [
         ...prevTasks,
         {
           text: value,
-          completed:   isCompleted,
+          completed: isCompleted,
           id: crypto.randomUUID(),
         },
       ];
