@@ -45,12 +45,16 @@ export default function App() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  const deleteTask = (key) => {
+    return setTasks(tasks.filter((item) => item.id !== key));
+  };
+
   return (
     <main>
       <Header theme={theme} handleClick={handleClick} />
       <Form newTask={newTask} />
       <section className="boxes-section">
-        <TasksList tasks={tasks} />
+        <TasksList tasks={tasks} deleteTask={deleteTask} />
         <Footer />
       </section>
 

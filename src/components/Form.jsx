@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Form({ newTask }) {
   const [inputValue, setInputValue] = useState("");
-  const [isCompleted, setIsCompleted] = useState(true);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   return (
     <form
