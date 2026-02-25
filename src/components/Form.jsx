@@ -11,6 +11,7 @@ export default function Form({ newTask }) {
         e.preventDefault();
         newTask(inputValue, isCompleted);
         setInputValue("");
+        setIsCompleted(false)
       }}
     >
       <span className="checkbox">

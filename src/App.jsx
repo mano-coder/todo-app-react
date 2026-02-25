@@ -32,8 +32,8 @@ export default function App() {
       return [
         ...prevTasks,
         {
-          text: { value },
-          completed: { isCompleted },
+          text: value,
+          completed:   isCompleted,
           id: crypto.randomUUID(),
         },
       ];
