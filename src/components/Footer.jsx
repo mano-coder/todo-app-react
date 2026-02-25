@@ -1,7 +1,7 @@
-export default function Footer() {
+export default function Footer({ itemsLeft }) {
   return (
     <footer className="box">
-      <span id="item-left">- items left</span>
+      <span id="item-left">{itemsLeft < 0 ? "-" : itemsLeft()} items left</span>
       <div className="filter-options">
         <button type="button" className="selected">
           All

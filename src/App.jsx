@@ -64,6 +64,11 @@ export default function App() {
     );
   };
 
+  const itemsLeft = () => {
+    return tasks.filter((item) => item.completed === false).length;
+  };
+  console.log(itemsLeft);
+
   return (
     <main>
       <Header theme={theme} handleClick={handleClick} />
@@ -74,7 +79,7 @@ export default function App() {
           deleteTask={deleteTask}
           toggleCheckBox={toggleCheckBox}
         />
-        <Footer />
+        <Footer itemsLeft={itemsLeft} />
       </section>
 
       <p className="note">Drag and drop to reorder list</p>
