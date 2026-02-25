@@ -2,14 +2,20 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
+import TasksList from "./components/TasksList";
 
 export default function App() {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
+
+  const [tasks, setTasks] = useState(() => {
+    return JSON.parse(localStorage.getItem("todos")) || [];
+  });
+
   useEffect(() => {
+    // Save Theme
     localStorage.setItem("theme", theme);
-    console.log(theme);
     if (theme === "dark") {
       document.body.setAttribute("data-theme", "dark");
     } else {
@@ -17,16 +23,20 @@ export default function App() {
     }
   }, [theme]);
 
-  function handleClick() {
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(tasks));
+  }, [tasks]);
+
+  const handleClick = () => {
     setTheme(theme === "dark" ? "light" : "dark");
-  }
+  };
 
   return (
     <main>
       <Header theme={theme} handleClick={handleClick} />
-      {/* <Form /> */}
+      <Form />
       <section className="boxes-section">
-        <ul id="task-list"></ul>
+        <TasksList tasks={tasks} />
         <Footer />
       </section>
 

@@ -7,7 +7,6 @@ export default function Form() {
       <input
         type="text"
         name="task"
-        value=""
         aria-label="Create a new task"
         placeholder="Create a new todo..."
       />
