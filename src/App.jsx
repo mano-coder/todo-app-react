@@ -27,6 +27,19 @@ export default function App() {
     localStorage.setItem("todos", JSON.stringify(tasks));
   }, [tasks]);
 
+  const newTask = (value, isCompleted) => {
+    setTasks((prevTasks) => {
+      return [
+        ...prevTasks,
+        {
+          text: { value },
+          completed: { isCompleted },
+          id: crypto.randomUUID(),
+        },
+      ];
+    });
+  };
+
   const handleClick = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
@@ -34,7 +47,7 @@ export default function App() {
   return (
     <main>
       <Header theme={theme} handleClick={handleClick} />
-      <Form />
+      <Form newTask={newTask} />
       <section className="boxes-section">
         <TasksList tasks={tasks} />
         <Footer />
