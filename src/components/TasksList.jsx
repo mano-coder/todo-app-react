@@ -1,10 +1,13 @@
 import iconcross from "../images/icon-cross.svg";
 
-export default function taskslist({ tasks, deleteTask }) {
+export default function taskslist({ tasks, deleteTask, toggleCheckBox }) {
   const maptasks = tasks.map(({ text, completed, id }) => {
     return (
       <li className="box" draggable="true" key={id}>
-        <span className={`checkbox ${completed ? "checked" : ""}`}>
+        <span
+          className={`checkbox ${completed ? "checked" : ""}`}
+          onClick={() => toggleCheckBox(id)}
+        >
           <input type="checkbox" />
         </span>
         <span>{text}</span>

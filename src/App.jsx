@@ -49,12 +49,31 @@ export default function App() {
     return setTasks(tasks.filter((item) => item.id !== key));
   };
 
+  const toggleCheckBox = (key) => {
+    return setTasks(
+      tasks.map((item) => {
+        if (item.id === key) {
+          return {
+            ...item,
+            completed: !item.completed,
+          };
+        } else {
+          return item;
+        }
+      }),
+    );
+  };
+
   return (
     <main>
       <Header theme={theme} handleClick={handleClick} />
       <Form newTask={newTask} />
       <section className="boxes-section">
-        <TasksList tasks={tasks} deleteTask={deleteTask} />
+        <TasksList
+          tasks={tasks}
+          deleteTask={deleteTask}
+          toggleCheckBox={toggleCheckBox}
+        />
         <Footer />
       </section>
 
