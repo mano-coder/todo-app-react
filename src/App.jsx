@@ -13,6 +13,8 @@ export default function App() {
     return JSON.parse(localStorage.getItem("todos")) || [];
   });
 
+  const [filter, setFilter] = useState("all");
+
   useEffect(() => {
     // Save Theme
     localStorage.setItem("theme", theme);
@@ -67,7 +69,20 @@ export default function App() {
   const itemsLeft = () => {
     return tasks.filter((item) => item.completed === false).length;
   };
-  console.log(itemsLeft);
+
+  const filteredTasks = () => {
+    if (filter === "all") {
+      return tasks;
+    } else if (filter === "active") {
+      return tasks.filter((item) => item.completed === false);
+    } else if (filter === "completed") {
+      return tasks.filter((item) => item.completed === true);
+    }
+  };
+
+  const clearCompleted = () => {
+    return setTasks(tasks.filter((item) => item.completed === false));
+  };
 
   return (
     <main>
@@ -75,11 +90,17 @@ export default function App() {
       <Form newTask={newTask} />
       <section className="boxes-section">
         <TasksList
-          tasks={tasks}
+          tasks={filteredTasks()}
+          setTasks={setTasks}
           deleteTask={deleteTask}
           toggleCheckBox={toggleCheckBox}
         />
-        <Footer itemsLeft={itemsLeft} />
+        <Footer
+          itemsLeft={itemsLeft}
+          setFilter={setFilter}
+          filter={filter}
+          clearCompleted={clearCompleted}
+        />
       </section>
 
       <p className="note">Drag and drop to reorder list</p>
