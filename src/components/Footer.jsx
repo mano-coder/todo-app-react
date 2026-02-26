@@ -9,7 +9,7 @@ export default function Footer({ itemsLeft }) {
         <button type="button">Active</button>
         <button type="button">Completed</button>
       </div>
-      <button type="button" id="clear-completed">
+      <button type="button" id="clear-completed" onClick={() => clearCompleted()}>
         Clear Completed
       </button>
     </footer>
