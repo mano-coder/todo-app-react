@@ -22,7 +22,6 @@ export default function taskslist({ tasks, deleteTask, toggleCheckBox, setTasks 
           const newOrder = [...document.querySelectorAll("#task-list li")].map(
             (el) => el.dataset.id,
           );
-          console.log(newOrder);
           setTasks(newOrder.map((id) => tasks.find((task) => task.id === id)));
         }}
       >
