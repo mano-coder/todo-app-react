@@ -66,6 +66,10 @@ body {
 main {
   flex: 1;
   padding-top: 3rem;
+  width: 100%;
+}
+
+#root {
   width: 90%;
 }
 
